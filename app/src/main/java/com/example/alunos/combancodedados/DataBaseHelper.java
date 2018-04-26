@@ -2,6 +2,7 @@ package com.example.alunos.combancodedados;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
@@ -47,6 +48,11 @@ public class DataBaseHelper extends SQLiteOpenHelper{
             return true;
         }
 
+    }
+    public Cursor getAllData(){
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor res = db.rawQuery(" Select * from " + TABLE_NAME, null);
+        return res;
     }
 
 }
